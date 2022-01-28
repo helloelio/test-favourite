@@ -1,0 +1,16 @@
+.filter {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px;
+  border-bottom: 1px solid #000;
+}
+
+.filter-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.filter-btn {
+  cursor: pointer;
+}
