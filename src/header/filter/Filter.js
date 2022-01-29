@@ -14,8 +14,8 @@ function Filter(props) {
     top: props.filterStatus
       ? '40px'
       : !props.filterStatus && size <= 1050
-      ? '-140px'
-      : '-62px',
+      ? '-135px'
+      : '-60px',
     transition: props.filterStatus ? '0.3s ease-in-out' : '',
   };
 
