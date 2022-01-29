@@ -17,7 +17,8 @@ a {
   border-right: 1px solid #000;
   background-color: rgb(218, 218, 218);
   transition: 0.3s ease-in-out;
-  z-index: 2;
+  z-index: 3;
+  box-shadow: 0 0 5px 0 black;
 
   overflow: hidden;
 }

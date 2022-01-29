@@ -1,7 +1,6 @@
 .filter {
+  position: relative;
   background-color: #fff;
-  border-bottom: 1px solid #000;
-  transition: 0.3s ease-in-out;
 }
 
 .filter-header {
@@ -21,16 +20,30 @@
   border: none;
 }
 .filter-block {
+  background-color: #fff;
+  position: absolute;
+  z-index: -1;
+  top: -50px;
+  left: 0;
+  right: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   column-gap: 60px;
   row-gap: 15px;
   padding: 5px 15px 30px 15px;
+  border-bottom: 2px solid #000;
 }
 .filter-input {
   font-size: 1.1rem;
   color: #000;
   border: none;
-  border-bottom: 2px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+@media (max-width: 1050px) {
+  .filter-block {
+    grid-template-columns: 1fr 1fr;
+    top: -100px;
+  }
 }

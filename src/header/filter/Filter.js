@@ -1,10 +1,22 @@
 import './Filter.css';
 import Input from '../UI/Input';
 import GearImage from '../assets/filter-gear.svg';
+import { useState, useEffect } from 'react';
 
 function Filter(props) {
+  const [size, setSize] = useState(document.documentElement.clientWidth);
+
+  window.addEventListener('resize', () => {
+    setSize(document.documentElement.clientWidth);
+  });
+
   const style = {
-    display: props.filterStatus ? 'grid' : 'none',
+    top: props.filterStatus
+      ? '40px'
+      : !props.filterStatus && size <= 1050
+      ? '-140px'
+      : '-62px',
+    transition: props.filterStatus ? '0.3s ease-in-out' : '',
   };
 
   const animationGear = {
