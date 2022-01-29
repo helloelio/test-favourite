@@ -1,13 +1,18 @@
 import './App.css';
 import Header from './header/Header';
 import Main from './main/Main';
+import Sidebar from './sidebar/Sidebar';
 
 function App() {
   return (
     <div className='App'>
-      <Header />
-      {/* aside */}
-      <Main />
+      <div>
+        <Sidebar />
+      </div>
+      <div>
+        <Header />
+        <Main />
+      </div>
     </div>
   );
 }

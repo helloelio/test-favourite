@@ -2,6 +2,8 @@
   position: fixed;
   right: 0;
   left: 0;
+  margin-left: 60px;
+  border-left: 1px solid #000;
 }
 .top-block {
   display: flex;
