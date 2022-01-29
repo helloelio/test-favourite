@@ -4,7 +4,7 @@ function Main(props) {
   const style = {
     left: props.sideBarStatus ? '210px' : '70px',
     width: props.sideBarStatus ? 'calc(100% - 210px)' : 'calc(100% - 70px )',
-    top: props.filterStatus ? '150px' : '115px',
+    top: props.filterStatus ? '220px' : '115px',
   };
 
   return (
