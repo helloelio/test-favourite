@@ -1,5 +1,6 @@
 import './Header.css';
 import FilterBlock from './filter/Filter';
+import Input from './UI/Input';
 
 function Header(props) {
   const style = {
@@ -10,7 +11,7 @@ function Header(props) {
     <header className='header' style={style}>
       <div className='top-block'>
         <div className='search'>
-          <input type='text' className='search-input' placeholder='Поиск...' />
+          <Input type='text' placeholder='Поиск...' className='search-input' />
         </div>
         <div className='personal-info'>
           <span className='personal-name'>Петров В.А.</span>
