@@ -4,6 +4,8 @@
   left: 0;
   margin-left: 60px;
   border-left: 1px solid #000;
+  transition: 0.3s ease-in-out;
+  z-index: 2;
 }
 .top-block {
   display: flex;
@@ -32,7 +34,11 @@
 
 .personal-image {
   background-color: rgb(165, 165, 165);
-  padding: 10px;
+  width: 50px;
+  height: 50px;
   margin-left: 20px;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,9 +1,13 @@
 import './Header.css';
 import FilterBlock from './filter/Filter';
 
-function Header() {
+function Header(props) {
+  const style = {
+    left: props.sideBarStatus ? '140px' : '0',
+  };
+
   return (
-    <header className='header'>
+    <header className='header' style={style}>
       <div className='top-block'>
         <div className='search'>
           <input type='text' className='search-input' placeholder='Поиск...' />
@@ -13,7 +17,10 @@ function Header() {
           <div className='personal-image'> В.А </div>
         </div>
       </div>
-      <FilterBlock />
+      <FilterBlock
+        toggleFilter={props.toggleFilter}
+        filterStatus={props.filterStatus}
+      />
     </header>
   );
 }

@@ -1,9 +1,13 @@
 .filter {
   background-color: #fff;
+  border-bottom: 1px solid #000;
+  transition: 0.3s ease-in-out;
+}
+
+.filter-header {
   display: flex;
   justify-content: space-between;
   padding: 5px 15px;
-  border-bottom: 1px solid #000;
 }
 
 .filter-title {
