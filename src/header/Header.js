@@ -21,6 +21,8 @@ function Header(props) {
       <FilterBlock
         toggleFilter={props.toggleFilter}
         filterStatus={props.filterStatus}
+        onChangeName={props.onChangeName}
+        onChangeNumber={props.onChangeNumber}
       />
     </header>
   );

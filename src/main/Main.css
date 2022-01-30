@@ -5,3 +5,22 @@ main {
   width: calc(100% - 70px);
   transition: 0.3s ease-in-out;
 }
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table td,
+.table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.table th {
+  background-color: #000;
+  color: #fff;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.table tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}

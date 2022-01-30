@@ -1,7 +1,7 @@
 import './Filter.css';
 import Input from '../UI/Input';
 import GearImage from '../assets/filter-gear.svg';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function Filter(props) {
   const [size, setSize] = useState(document.documentElement.clientWidth);
@@ -37,10 +37,30 @@ function Filter(props) {
         <Input type='date' placeholder='Дата до' className='filter-input' />
         <Input type='date' placeholder='Дата от' className='filter-input' />
         <Input type='date' placeholder='Дата до' className='filter-input' />
-        <Input type='text' placeholder='Имя клиента' className='filter-input' />
-        <Input type='text' placeholder='Телефон' className='filter-input' />
-        <Input type='text' placeholder='Имя клиента' className='filter-input' />
-        <Input type='text' placeholder='Телефон' className='filter-input' />
+        <Input
+          type='text'
+          placeholder='Имя клиента'
+          className='filter-input'
+          onChange={props.onChangeName}
+        />
+        <Input
+          type='text'
+          placeholder='Телефон'
+          className='filter-input'
+          onChange={props.onChangeNumber}
+        />
+        <Input
+          type='text'
+          placeholder='Имя клиента'
+          className='filter-input'
+          onChange={props.onChangeName}
+        />
+        <Input
+          type='text'
+          placeholder='Телефон'
+          className='filter-input'
+          onChange={props.onChangeNumber}
+        />
       </div>
     </div>
   );

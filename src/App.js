@@ -7,6 +7,8 @@ import { useState } from 'react';
 function App() {
   const [sideBarStatus, setSideBarStatus] = useState(false);
   const [filterStatus, setFilterStatus] = useState(false);
+  const [filterName, setFilterName] = useState('');
+  const [filterNumber, setFilterNumber] = useState('');
 
   const handleMouseEnter = (e) => {
     setSideBarStatus(true);
@@ -18,6 +20,14 @@ function App() {
 
   const toggleFilter = () => {
     setFilterStatus(!filterStatus);
+  };
+
+  const handleOnChangeName = (e) => {
+    setFilterName(e.target.value);
+  };
+
+  const handleOnChangeNumber = (e) => {
+    setFilterNumber(e.target.value);
   };
 
   return (
@@ -34,8 +44,15 @@ function App() {
           sideBarStatus={sideBarStatus}
           toggleFilter={toggleFilter}
           filterStatus={filterStatus}
+          onChangeName={handleOnChangeName}
+          onChangeNumber={handleOnChangeNumber}
         />
-        <Main sideBarStatus={sideBarStatus} filterStatus={filterStatus} />
+        <Main
+          sideBarStatus={sideBarStatus}
+          filterStatus={filterStatus}
+          filterName={filterName}
+          filterNumber={filterNumber}
+        />
       </div>
     </div>
   );

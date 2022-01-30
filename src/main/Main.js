@@ -1,12 +1,50 @@
 import './Main.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Personal from './personal/Personal';
 
 function Main(props) {
   const [size, setSize] = useState(document.documentElement.clientWidth);
+  const [personal, setPersonal] = useState([
+    { id: 1, name: 'Виктор', number: '89991002000' },
+    { id: 2, name: 'Константин', number: '89993002000' },
+    { id: 3, name: 'Алексей', number: '89994002000' },
+    { id: 4, name: 'Александр', number: '89995002000' },
+    { id: 5, name: 'Валерий', number: '89996002000' },
+    { id: 6, name: 'Максим', number: '89997002000' },
+    { id: 7, name: 'Никита', number: '89998002000' },
+  ]);
+  const [filteredPersonal, setFilteredPersonal] = useState([]);
 
   window.addEventListener('resize', () => {
     setSize(document.documentElement.clientWidth);
   });
+
+  const renderPesonal = () => {
+    if (props.filterName === '' && props.filterNumber === '') {
+      setPersonal([
+        { id: 1, name: 'Виктор', number: '89991002000' },
+        { id: 2, name: 'Константин', number: '89993002000' },
+        { id: 3, name: 'Алексей', number: '89994002000' },
+        { id: 4, name: 'Александр', number: '89995002000' },
+        { id: 5, name: 'Валерий', number: '89996002000' },
+        { id: 6, name: 'Максим', number: '89997002000' },
+        { id: 7, name: 'Никита', number: '89998002000' },
+      ]);
+    } else {
+      setFilteredPersonal(
+        personal.filter((persona) => {
+          return (
+            persona.number.includes(props.filterNumber) &&
+            persona.name.includes(props.filterName)
+          );
+        })
+      );
+    }
+  };
+
+  useEffect(() => {
+    renderPesonal();
+  }, [props.filterName, props.filterNumber]);
 
   const style = {
     left: props.sideBarStatus ? '210px' : '70px',
@@ -22,212 +60,24 @@ function Main(props) {
   return (
     <main style={style}>
       <h1>Main title</h1>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, illo
-      doloribus! Tempora inventore dolor distinctio rem explicabo incidunt vitae
-      saepe, modi tenetur voluptatibus possimus odio nobis maiores quo illo
-      atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores,
-      illo doloribus! Tempora inventore dolor distinctio rem explicabo incidunt
-      vitae saepe, modi tenetur voluptatibus possimus odio nobis maiores quo
-      illo atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Maiores, illo doloribus! Tempora inventore dolor distinctio rem explicabo
-      incidunt vitae saepe, modi tenetur voluptatibus possimus odio nobis
-      maiores quo illo atque! Lorem ipsum dolor sit amet, consectetur
-      adipisicing elit. Maiores, illo doloribus! Tempora inventore dolor
-      distinctio rem explicabo incidunt vitae saepe, modi tenetur voluptatibus
-      possimus odio nobis maiores quo illo atque! Lorem ipsum dolor sit amet,
-      consectetur adipisicing elit. Maiores, illo doloribus! Tempora inventore
-      dolor distinctio rem explicabo incidunt vitae saepe, modi tenetur
-      voluptatibus possimus odio nobis maiores quo illo atque! Lorem ipsum dolor
-      sit amet, consectetur adipisicing elit. Maiores, illo doloribus! Tempora
-      inventore dolor distinctio rem explicabo incidunt vitae saepe, modi
-      tenetur voluptatibus possimus odio nobis maiores quo illo atque! Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit. Maiores, illo
-      doloribus! Tempora inventore dolor distinctio rem explicabo incidunt vitae
-      saepe, modi tenetur voluptatibus possimus odio nobis maiores quo illo
-      atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores,
-      illo doloribus! Tempora inventore dolor distinctio rem explicabo incidunt
-      vitae saepe, modi tenetur voluptatibus possimus odio nobis maiores quo
-      illo atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Maiores, illo doloribus! Tempora inventore dolor distinctio rem explicabo
-      incidunt vitae saepe, modi tenetur voluptatibus possimus odio nobis
-      maiores quo illo atque! Lorem ipsum dolor sit amet, consectetur
-      adipisicing elit. Maiores, illo doloribus! Tempora inventore dolor
-      distinctio rem explicabo incidunt vitae saepe, modi tenetur voluptatibus
-      possimus odio nobis maiores quo illo atque! Lorem ipsum dolor sit amet,
-      consectetur adipisicing elit. Maiores, illo doloribus! Tempora inventore
-      dolor distinctio rem explicabo incidunt vitae saepe, modi tenetur
-      voluptatibus possimus odio nobis maiores quo illo atque! Lorem ipsum dolor
-      sit amet, consectetur adipisicing elit. Maiores, illo doloribus! Tempora
-      inventore dolor distinctio rem explicabo incidunt vitae saepe, modi
-      tenetur voluptatibus possimus odio nobis maiores quo illo atque! Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit. Maiores, illo
-      doloribus! Tempora inventore dolor distinctio rem explicabo incidunt vitae
-      saepe, modi tenetur voluptatibus possimus odio nobis maiores quo illo
-      atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores,
-      illo doloribus! Tempora inventore dolor distinctio rem explicabo incidunt
-      vitae saepe, modi tenetur voluptatibus possimus odio nobis maiores quo
-      illo atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Maiores, illo doloribus! Tempora inventore dolor distinctio rem explicabo
-      incidunt vitae saepe, modi tenetur voluptatibus possimus odio nobis
-      maiores quo illo atque! Lorem ipsum dolor sit amet, consectetur
-      adipisicing elit. Maiores, illo doloribus! Tempora inventore dolor
-      distinctio rem explicabo incidunt vitae saepe, modi tenetur voluptatibus
-      possimus odio nobis maiores quo illo atque! Lorem ipsum dolor sit amet,
-      consectetur adipisicing elit. Maiores, illo doloribus! Tempora inventore
-      dolor distinctio rem explicabo incidunt vitae saepe, modi tenetur
-      voluptatibus possimus odio nobis maiores quo illo atque! Lorem ipsum dolor
-      sit amet, consectetur adipisicing elit. Maiores, illo doloribus! Tempora
-      inventore dolor distinctio rem explicabo incidunt vitae saepe, modi
-      tenetur voluptatibus possimus odio nobis maiores quo illo atque! Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit. Maiores, illo
-      doloribus! Tempora inventore dolor distinctio rem explicabo incidunt vitae
-      saepe, modi tenetur voluptatibus possimus odio nobis maiores quo illo
-      atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores,
-      illo doloribus! Tempora inventore dolor distinctio rem explicabo incidunt
-      vitae saepe, modi tenetur voluptatibus possimus odio nobis maiores quo
-      illo atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Maiores, illo doloribus! Tempora inventore dolor distinctio rem explicabo
-      incidunt vitae saepe, modi tenetur voluptatibus possimus odio nobis
-      maiores quo illo atque! Lorem ipsum dolor sit amet, consectetur
-      adipisicing elit. Maiores, illo doloribus! Tempora inventore dolor
-      distinctio rem explicabo incidunt vitae saepe, modi tenetur voluptatibus
-      possimus odio nobis maiores quo illo atque! Lorem ipsum dolor sit amet,
-      consectetur adipisicing elit. Maiores, illo doloribus! Tempora inventore
-      dolor distinctio rem explicabo incidunt vitae saepe, modi tenetur
-      voluptatibus possimus odio nobis maiores quo illo atque! Lorem ipsum dolor
-      sit amet, consectetur adipisicing elit. Maiores, illo doloribus! Tempora
-      inventore dolor distinctio rem explicabo incidunt vitae saepe, modi
-      tenetur voluptatibus possimus odio nobis maiores quo illo atque! Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit. Maiores, illo
-      doloribus! Tempora inventore dolor distinctio rem explicabo incidunt vitae
-      saepe, modi tenetur voluptatibus possimus odio nobis maiores quo illo
-      atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores,
-      illo doloribus! Tempora inventore dolor distinctio rem explicabo incidunt
-      vitae saepe, modi tenetur voluptatibus possimus odio nobis maiores quo
-      illo atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Maiores, illo doloribus! Tempora inventore dolor distinctio rem explicabo
-      incidunt vitae saepe, modi tenetur voluptatibus possimus odio nobis
-      maiores quo illo atque! Lorem ipsum dolor sit amet, consectetur
-      adipisicing elit. Maiores, illo doloribus! Tempora inventore dolor
-      distinctio rem explicabo incidunt vitae saepe, modi tenetur voluptatibus
-      possimus odio nobis maiores quo illo atque! Lorem ipsum dolor sit amet,
-      consectetur adipisicing elit. Maiores, illo doloribus! Tempora inventore
-      dolor distinctio rem explicabo incidunt vitae saepe, modi tenetur
-      voluptatibus possimus odio nobis maiores quo illo atque! Lorem ipsum dolor
-      sit amet, consectetur adipisicing elit. Maiores, illo doloribus! Tempora
-      inventore dolor distinctio rem explicabo incidunt vitae saepe, modi
-      tenetur voluptatibus possimus odio nobis maiores quo illo atque! Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit. Maiores, illo
-      doloribus! Tempora inventore dolor distinctio rem explicabo incidunt vitae
-      saepe, modi tenetur voluptatibus possimus odio nobis maiores quo illo
-      atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores,
-      illo doloribus! Tempora inventore dolor distinctio rem explicabo incidunt
-      vitae saepe, modi tenetur voluptatibus possimus odio nobis maiores quo
-      illo atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Maiores, illo doloribus! Tempora inventore dolor distinctio rem explicabo
-      incidunt vitae saepe, modi tenetur voluptatibus possimus odio nobis
-      maiores quo illo atque! Lorem ipsum dolor sit amet, consectetur
-      adipisicing elit. Maiores, illo doloribus! Tempora inventore dolor
-      distinctio rem explicabo incidunt vitae saepe, modi tenetur voluptatibus
-      possimus odio nobis maiores quo illo atque! Lorem ipsum dolor sit amet,
-      consectetur adipisicing elit. Maiores, illo doloribus! Tempora inventore
-      dolor distinctio rem explicabo incidunt vitae saepe, modi tenetur
-      voluptatibus possimus odio nobis maiores quo illo atque! Lorem ipsum dolor
-      sit amet, consectetur adipisicing elit. Maiores, illo doloribus! Tempora
-      inventore dolor distinctio rem explicabo incidunt vitae saepe, modi
-      tenetur voluptatibus possimus odio nobis maiores quo illo atque! Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit. Maiores, illo
-      doloribus! Tempora inventore dolor distinctio rem explicabo incidunt vitae
-      saepe, modi tenetur voluptatibus possimus odio nobis maiores quo illo
-      atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores,
-      illo doloribus! Tempora inventore dolor distinctio rem explicabo incidunt
-      vitae saepe, modi tenetur voluptatibus possimus odio nobis maiores quo
-      illo atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Maiores, illo doloribus! Tempora inventore dolor distinctio rem explicabo
-      incidunt vitae saepe, modi tenetur voluptatibus possimus odio nobis
-      maiores quo illo atque! Lorem ipsum dolor sit amet, consectetur
-      adipisicing elit. Maiores, illo doloribus! Tempora inventore dolor
-      distinctio rem explicabo incidunt vitae saepe, modi tenetur voluptatibus
-      possimus odio nobis maiores quo illo atque! Lorem ipsum dolor sit amet,
-      consectetur adipisicing elit. Maiores, illo doloribus! Tempora inventore
-      dolor distinctio rem explicabo incidunt vitae saepe, modi tenetur
-      voluptatibus possimus odio nobis maiores quo illo atque! Lorem ipsum dolor
-      sit amet, consectetur adipisicing elit. Maiores, illo doloribus! Tempora
-      inventore dolor distinctio rem explicabo incidunt vitae saepe, modi
-      tenetur voluptatibus possimus odio nobis maiores quo illo atque! Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit. Maiores, illo
-      doloribus! Tempora inventore dolor distinctio rem explicabo incidunt vitae
-      saepe, modi tenetur voluptatibus possimus odio nobis maiores quo illo
-      atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores,
-      illo doloribus! Tempora inventore dolor distinctio rem explicabo incidunt
-      vitae saepe, modi tenetur voluptatibus possimus odio nobis maiores quo
-      illo atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Maiores, illo doloribus! Tempora inventore dolor distinctio rem explicabo
-      incidunt vitae saepe, modi tenetur voluptatibus possimus odio nobis
-      maiores quo illo atque! Lorem ipsum dolor sit amet, consectetur
-      adipisicing elit. Maiores, illo doloribus! Tempora inventore dolor
-      distinctio rem explicabo incidunt vitae saepe, modi tenetur voluptatibus
-      possimus odio nobis maiores quo illo atque! Lorem ipsum dolor sit amet,
-      consectetur adipisicing elit. Maiores, illo doloribus! Tempora inventore
-      dolor distinctio rem explicabo incidunt vitae saepe, modi tenetur
-      voluptatibus possimus odio nobis maiores quo illo atque! Lorem ipsum dolor
-      sit amet, consectetur adipisicing elit. Maiores, illo doloribus! Tempora
-      inventore dolor distinctio rem explicabo incidunt vitae saepe, modi
-      tenetur voluptatibus possimus odio nobis maiores quo illo atque! Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit. Maiores, illo
-      doloribus! Tempora inventore dolor distinctio rem explicabo incidunt vitae
-      saepe, modi tenetur voluptatibus possimus odio nobis maiores quo illo
-      atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores,
-      illo doloribus! Tempora inventore dolor distinctio rem explicabo incidunt
-      vitae saepe, modi tenetur voluptatibus possimus odio nobis maiores quo
-      illo atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Maiores, illo doloribus! Tempora inventore dolor distinctio rem explicabo
-      incidunt vitae saepe, modi tenetur voluptatibus possimus odio nobis
-      maiores quo illo atque! Lorem ipsum dolor sit amet, consectetur
-      adipisicing elit. Maiores, illo doloribus! Tempora inventore dolor
-      distinctio rem explicabo incidunt vitae saepe, modi tenetur voluptatibus
-      possimus odio nobis maiores quo illo atque! Lorem ipsum dolor sit amet,
-      consectetur adipisicing elit. Maiores, illo doloribus! Tempora inventore
-      dolor distinctio rem explicabo incidunt vitae saepe, modi tenetur
-      voluptatibus possimus odio nobis maiores quo illo atque! Lorem ipsum dolor
-      sit amet, consectetur adipisicing elit. Maiores, illo doloribus! Tempora
-      inventore dolor distinctio rem explicabo incidunt vitae saepe, modi
-      tenetur voluptatibus possimus odio nobis maiores quo illo atque! Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit. Maiores, illo
-      doloribus! Tempora inventore dolor distinctio rem explicabo incidunt vitae
-      saepe, modi tenetur voluptatibus possimus odio nobis maiores quo illo
-      atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores,
-      illo doloribus! Tempora inventore dolor distinctio rem explicabo incidunt
-      vitae saepe, modi tenetur voluptatibus possimus odio nobis maiores quo
-      illo atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Maiores, illo doloribus! Tempora inventore dolor distinctio rem explicabo
-      incidunt vitae saepe, modi tenetur voluptatibus possimus odio nobis
-      maiores quo illo atque! Lorem ipsum dolor sit amet, consectetur
-      adipisicing elit. Maiores, illo doloribus! Tempora inventore dolor
-      distinctio rem explicabo incidunt vitae saepe, modi tenetur voluptatibus
-      possimus odio nobis maiores quo illo atque! Lorem ipsum dolor sit amet,
-      consectetur adipisicing elit. Maiores, illo doloribus! Tempora inventore
-      dolor distinctio rem explicabo incidunt vitae saepe, modi tenetur
-      voluptatibus possimus odio nobis maiores quo illo atque! Lorem ipsum dolor
-      sit amet, consectetur adipisicing elit. Maiores, illo doloribus! Tempora
-      inventore dolor distinctio rem explicabo incidunt vitae saepe, modi
-      tenetur voluptatibus possimus odio nobis maiores quo illo atque! Lorem
-      ipsum dolor sit amet, consectetur adipisicing elit. Maiores, illo
-      doloribus! Tempora inventore dolor distinctio rem explicabo incidunt vitae
-      saepe, modi tenetur voluptatibus possimus odio nobis maiores quo illo
-      atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores,
-      illo doloribus! Tempora inventore dolor distinctio rem explicabo incidunt
-      vitae saepe, modi tenetur voluptatibus possimus odio nobis maiores quo
-      illo atque! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Maiores, illo doloribus! Tempora inventore dolor distinctio rem explicabo
-      incidunt vitae saepe, modi tenetur voluptatibus possimus odio nobis
-      maiores quo illo atque! Lorem ipsum dolor sit amet, consectetur
-      adipisicing elit. Maiores, illo doloribus! Tempora inventore dolor
-      distinctio rem explicabo incidunt vitae saepe, modi tenetur voluptatibus
-      possimus odio nobis maiores quo illo atque! Lorem ipsum dolor sit amet,
-      consectetur adipisicing elit. Maiores, illo doloribus! Tempora inventore
-      dolor distinctio rem explicabo incidunt vitae saepe, modi tenetur
-      voluptatibus possimus odio nobis maiores quo illo atque!
+      <table className='table'>
+        <thead className='table-head'>
+          <tr>
+            <th>Имя клиента</th>
+            <th>Телефон</th>
+          </tr>
+        </thead>
+        <tbody className='table-body'>
+          {(props.filterName === '' &&
+            props.filterNumber === '' &&
+            personal.map((persona) => {
+              return <Personal persona={persona} key={persona.id} />;
+            })) ||
+            filteredPersonal.map((persona) => {
+              return <Personal persona={persona} key={persona.id} />;
+            })}
+        </tbody>
+      </table>
     </main>
   );
 }
