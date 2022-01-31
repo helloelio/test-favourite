@@ -13,8 +13,13 @@ function Filter(props) {
   const style = {
     top: props.filterStatus
       ? '40px'
+      : // но на супер маленьких разрешениях все ломается
+      !props.filterStatus && size <= 400
+      ? '-390px'
+      : !props.filterStatus && size <= 620
+      ? '-300px'
       : !props.filterStatus && size <= 1050
-      ? '-135px'
+      ? '-180px'
       : '-60px',
     transition: props.filterStatus ? '0.3s ease-in-out' : '',
   };

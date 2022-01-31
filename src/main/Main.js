@@ -19,7 +19,30 @@ function Main(props) {
     setSize(document.documentElement.clientWidth);
   });
 
-  const renderPesonal = () => {
+  // const renderPesonal = () => {
+  //   if (props.filterName === '' && props.filterNumber === '') {
+  //     setPersonal([
+  //       { id: 1, name: 'Виктор', number: '89991002000' },
+  //       { id: 2, name: 'Константин', number: '89993002000' },
+  //       { id: 3, name: 'Алексей', number: '89994002000' },
+  //       { id: 4, name: 'Александр', number: '89995002000' },
+  //       { id: 5, name: 'Валерий', number: '89996002000' },
+  //       { id: 6, name: 'Максим', number: '89997002000' },
+  //       { id: 7, name: 'Никита', number: '89998002000' },
+  //     ]);
+  //   } else {
+  //     setFilteredPersonal(
+  //       personal.filter((persona) => {
+  //         return (
+  //           persona.number.includes(props.filterNumber) &&
+  //           persona.name.includes(props.filterName)
+  //         );
+  //       })
+  //     );
+  //   }
+  // };
+
+  useEffect(() => {
     if (props.filterName === '' && props.filterNumber === '') {
       setPersonal([
         { id: 1, name: 'Виктор', number: '89991002000' },
@@ -40,10 +63,6 @@ function Main(props) {
         })
       );
     }
-  };
-
-  useEffect(() => {
-    renderPesonal();
   }, [props.filterName, props.filterNumber]);
 
   const style = {
@@ -52,7 +71,9 @@ function Main(props) {
     top:
       props.filterStatus && size > 1050
         ? '220px'
-        : size < 1050 && props.filterStatus
+        : size <= 620 && props.filterStatus
+        ? '450px'
+        : size <= 1050 && props.filterStatus
         ? '280px'
         : '115px',
   };

@@ -47,3 +47,17 @@
     top: -100px;
   }
 }
+
+@media (max-width: 620px) {
+  .filter-block {
+    grid-template-columns: 1fr;
+    top: -500px;
+  }
+}
+
+@media (max-width: 400px) {
+  .filter-block {
+    grid-template-columns: 1fr;
+    top: -700px;
+  }
+}
